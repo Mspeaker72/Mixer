@@ -35,6 +35,18 @@ button {
   .yellow{
     background-color: yellow;
   }
+  .brown{
+    background-color: brown;
+  }
+  .pink{
+    background-color: pink;
+  }
+  .light-blue{
+    background-color: lightblue;
+  }
+  .maroon{
+    background-color: maroon;
+  }
 
 button{
   width: 80px;

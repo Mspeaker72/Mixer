@@ -5,10 +5,10 @@ import genColour from './Scripts/ColorGenerator'
 import './App.css'
 
 function App() {
-  const colours =["blue","red","green"]
+  const colours =["blue","red","yellow","white"]
   const[option,setOption]=useState(false)
-  const [colour_1,setColor_1]=useState("white")
-  const [colour_2,setColor_2]=useState("white")
+  const [colour_1,setColor_1]=useState("")
+  const [colour_2,setColor_2]=useState("")
   const [result,setResult]=useState("white")
   const[unlocked_colours,setUnlockedColours]=useState(colours)
 
@@ -29,24 +29,24 @@ function App() {
 
   function reset(){
     setOption(false)
-    setColor_1("white")
-    setColor_2("white")
+    setColor_1("")
+    setColor_2("")
   }
 
   function updateResult(){
 
-    if (colour_1==="white" || colour_1===colour_2){
-      setResult(colour_2)
+    if (colour_2==="" || colour_1===colour_2){
+      setResult(colour_1)
       
     }
 
-    else if(colour_2==="white" || colour_1===colour_2){
-      setResult(colour_1)
+    else if(colour_1==="" || colour_1===colour_2){
+      setResult(colour_2)
     }
 
    else{
     let result =genColour(colour_1,colour_2)
-    if(result!=="white" && !unlocked_colours.includes(result)){
+    if(result!=="" && !unlocked_colours.includes(result)){
       let arr = unlocked_colours
       arr.push(result)
       setUnlockedColours(arr)
@@ -67,7 +67,7 @@ function App() {
     <p>+</p>
     {<p style={{background : colour_2 }} className='text'>{" Selection two :"+colour_2}</p>}
     <p>=</p>
-    <p  className={"results"}hidden={result==="white"}><Result color={result}></Result></p>
+    <p  className={"results"}hidden={result===""}><Result color={result}></Result></p>
     {unlocked_colours.map((colour)=><ColorSelection key={colour} 
     color={colour} 
     Classname={colour} 
