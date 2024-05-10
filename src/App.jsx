@@ -55,15 +55,19 @@ function App() {
 
   return (
     <>
-    {<p>{"Selection one :"+colour_1}</p>}
-    {<p>{"Selection two :"+colour_2}</p>}
+    <h1>Mixer</h1>
+    <p style={{background : colour_1 }}className='text'>{"Selection one :"+colour_1}</p>
+    <p>+</p>
+    {<p style={{background : colour_2 }} className='text'>{" Selection two :"+colour_2}</p>}
+    <p>=</p>
+    <p  className={"results"}hidden={result==="white"}><Result color={result}></Result></p>
     {colours.map((colour)=><ColorSelection key={colour} 
     color={colour} 
     Classname={colour} 
     onclick={updateColor}>
     </ColorSelection>)}
-    <div><Result color={result}></Result></div>
-    <div><ColorSelection color={"clear"} onclick={()=>reset()}></ColorSelection></div>
+    <div className='clear'> 
+    <ColorSelection color={"clear"} onclick={()=>reset()}></ColorSelection></div>
     
     
 
