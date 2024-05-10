@@ -15,7 +15,11 @@ function genColour(colour_1,colour_2){
         // for learning purposes I will keep this conditional here as opposed to the first
         return "cyan"
 
+    }else if(arr.includes("yellow") && arr.includes("red")){
+        // for learning purposes I will keep this conditional here as opposed to the first
+        return "orange"
     }
+
 
     return "white"
         

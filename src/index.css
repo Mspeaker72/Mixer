@@ -29,6 +29,12 @@ button {
   .cyan{
     background-color: cyan;
   }
+  .orange{
+    background-color: orange;
+  }
+  .yellow{
+    background-color: yellow;
+  }
 
 button{
   width: 80px;

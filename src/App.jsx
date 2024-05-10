@@ -5,10 +5,12 @@ import genColour from './Scripts/ColorGenerator'
 import './App.css'
 
 function App() {
+  const colours =["blue","red","green"]
   const[option,setOption]=useState(false)
   const [colour_1,setColor_1]=useState("white")
   const [colour_2,setColor_2]=useState("white")
   const [result,setResult]=useState("white")
+  const[unlocked_colours,setUnlockedColours]=useState(colours)
 
   function updateColor(color){
     if(!option){
@@ -43,7 +45,13 @@ function App() {
     }
 
    else{
-    setResult(genColour(colour_1,colour_2))
+    let result =genColour(colour_1,colour_2)
+    if(result!=="white" && !unlocked_colours.includes(result)){
+      let arr = unlocked_colours
+      arr.push(result)
+      setUnlockedColours(arr)
+    }
+    setResult(result)
    }
   }
 
@@ -51,8 +59,7 @@ function App() {
     updateResult();
   },[colour_1,colour_2])
 
-  const colours =["blue","red","green"]
-
+  
   return (
     <>
     <h1>Mixer</h1>
@@ -61,7 +68,7 @@ function App() {
     {<p style={{background : colour_2 }} className='text'>{" Selection two :"+colour_2}</p>}
     <p>=</p>
     <p  className={"results"}hidden={result==="white"}><Result color={result}></Result></p>
-    {colours.map((colour)=><ColorSelection key={colour} 
+    {unlocked_colours.map((colour)=><ColorSelection key={colour} 
     color={colour} 
     Classname={colour} 
     onclick={updateColor}>
