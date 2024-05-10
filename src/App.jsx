@@ -1,0 +1,74 @@
+import { useEffect, useState } from 'react'
+import ColorSelection from './Components/ColorSelection'
+import Result from './Components/Result'
+import genColour from './Scripts/ColorGenerator'
+import './App.css'
+
+function App() {
+  const[option,setOption]=useState(false)
+  const [colour_1,setColor_1]=useState("white")
+  const [colour_2,setColor_2]=useState("white")
+  const [result,setResult]=useState("white")
+
+  function updateColor(color){
+    if(!option){
+    setColor_1(color)
+    console.log("color  1 is : "+color)
+    setOption(true)
+    return;
+    }else{
+      setColor_2(color)
+      console.log("color  2 is : "+color)
+      setOption(false)
+      return;
+    }
+
+  }
+
+  function reset(){
+    setOption(false)
+    setColor_1("white")
+    setColor_2("white")
+  }
+
+  function updateResult(){
+
+    if (colour_1==="white" || colour_1===colour_2){
+      setResult(colour_2)
+      
+    }
+
+    else if(colour_2==="white" || colour_1===colour_2){
+      setResult(colour_1)
+    }
+
+   else{
+    setResult(genColour(colour_1,colour_2))
+   }
+  }
+
+  useEffect(()=>{
+    updateResult();
+  },[colour_1,colour_2])
+
+  const colours =["blue","red","green"]
+
+  return (
+    <>
+    {<p>{"Selection one :"+colour_1}</p>}
+    {<p>{"Selection two :"+colour_2}</p>}
+    {colours.map((colour)=><ColorSelection key={colour} 
+    color={colour} 
+    Classname={colour} 
+    onclick={updateColor}>
+    </ColorSelection>)}
+    <div><Result color={result}></Result></div>
+    <div><ColorSelection color={"clear"} onclick={()=>reset()}></ColorSelection></div>
+    
+    
+
+    </>
+  )
+}
+
+export default App
