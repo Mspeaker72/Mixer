@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import ColorSelection from './Components/ColorSelection'
 import Result from './Components/Result'
 import genColour from './Scripts/ColorGenerator'
-import './App.css'
+import Textinput from './Components/Textinput'
+
 
 function App() {
   const colours =["blue","red","yellow","white"]
@@ -16,19 +17,19 @@ function App() {
     if(!option){
     setColor_1(color)
     console.log("color  1 is : "+color)
-    setOption(true)
+    setOption(prev=>!prev)
     return;
     }else{
       setColor_2(color)
       console.log("color  2 is : "+color)
-      setOption(false)
+      setOption(prev=>!prev)
       return;
     }
 
   }
 
   function reset(){
-    setOption(false)
+    setOption(prev=>!prev)
     setColor_1("")
     setColor_2("")
   }
@@ -62,7 +63,11 @@ function App() {
   
   return (
     <>
+    <header className='header'></header>
+    <div className='nav'>
     <h1>Mixer</h1>
+    </div>
+    <div className='L1'>
     <p style={{background : colour_1 }}className='text'>{"Selection one :"+colour_1}</p>
     <p>+</p>
     {<p style={{background : colour_2 }} className='text'>{" Selection two :"+colour_2}</p>}
@@ -75,6 +80,9 @@ function App() {
     </ColorSelection>)}
     <div className='clear'> 
     <ColorSelection color={"clear"} onclick={()=>reset()}></ColorSelection></div>
+    </div>
+    <Textinput colour={result}></Textinput>
+    <footer className="footer"><p>&copy;Mspeaker Productions</p></footer>
     
     
 

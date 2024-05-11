@@ -1,5 +1,5 @@
 body{
-  background-color: gray;
+  background-color: wheat;
 }
 button {
     background-color: #f9f9f9;
@@ -79,13 +79,63 @@ input {
   text-align: center;
   border-width: 2px; /* Sets the width of the border around the element to 2 pixels on all sides */
   border-style: solid; /* Specifies the border style as solid */
-  border-color: black; /* Sets the border color to black */
+  border-color: #000000; /* Sets the border color to black */
   border-radius: 20px;
   
   
 }
 
+.L1{
+  border-width: 2px; /* Sets the width of the border around the element to 2 pixels on all sides */
+  border-style: solid; /* Specifies the border style as solid */
+  border-color: #000000; /* Sets the border color to black */
+  border-radius: 20px;
+  background-color:#f0c893;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff; 
+  padding: 20px; 
+  position: fixed; 
+  left: 0;
+  bottom: 0; 
+  width: 100%; 
+}
 
 
+.footer p {
+  margin: 0; 
+  text-align: center;
+}
 
 
+.footer p:hover {
+  color: greenyellow
+}
+
+
+.header {
+  background-color: #333;
+  color: #fff; 
+  padding: 10px;
+  position: fixed; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+}
+
+.text-input{
+  width: 100%;
+  margin-top:30px;
+  height: 160px;
+  border-radius: 30px;
+}
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
