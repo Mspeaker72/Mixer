@@ -3,7 +3,7 @@ import ColorSelection from './Components/ColorSelection'
 import Result from './Components/Result'
 import genColour from './Scripts/ColorGenerator'
 import Textinput from './Components/Textinput'
-
+import Operations from './Components/Operations'
 
 function App() {
   const colours =["blue","red","yellow","white"]
@@ -64,9 +64,7 @@ function App() {
   return (
     <>
     <header className='header'></header>
-    <div className='nav'>
-    <h1>Mixer</h1>
-    </div>
+    <Operations></Operations>
     <div className='L1'>
     <p style={{background : colour_1 }}className='text'>{"Selection one :"+colour_1}</p>
     <p>+</p>
