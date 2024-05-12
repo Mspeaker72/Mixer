@@ -6,6 +6,7 @@ import Textinput from './Components/Textinput'
 import Operations from './Components/Operations'
 
 function App() {
+  const bar =["Undo","Save","Restore","Email","Login"]
   const colours =["blue","red","yellow","white"]
   const[option,setOption]=useState(false)
   const [colour_1,setColor_1]=useState("")
@@ -64,13 +65,15 @@ function App() {
   return (
     <>
     <header className='header'></header>
-    <Operations></Operations>
+    <Operations arr={bar}></Operations>
     <div className='L1'>
-    <p style={{background : colour_1 }}className='text'>{"Selection one :"+colour_1}</p>
+      <div className='pallet'>
+    <p style={{background : colour_1 }}className='text'>{}</p>
     <p>+</p>
-    {<p style={{background : colour_2 }} className='text'>{" Selection two :"+colour_2}</p>}
+    {<p style={{background : colour_2 }} className='text'>{}</p>}
     <p>=</p>
-    <p  className={"results"}hidden={result===""}><Result color={result}></Result></p>
+    <p style={{background : result }} className={"text"}hidden={result===""}>{}</p>
+    </div>
     {unlocked_colours.map((colour)=><ColorSelection key={colour} 
     color={colour} 
     Classname={colour} 

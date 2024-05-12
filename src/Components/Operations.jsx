@@ -1,10 +1,17 @@
-function Operations() {
+import { useState ,useEffect} from "react";
+function Operations({arr}) {
 
-    const bar =["Undo","Save","Restore","Email","Login"]
+    const[selected,setSelection]=useState("");
+
+    function handleClick(value){
+        setSelection(value)
+        console.log(value)
+    }
 
     return(
     <nav className="nav">
-        <ul> {bar.map((operation)=> <li className="li" key={operation}>{operation}</li> )}</ul>
+         {arr.map((operation)=> <li onClick={ ()=>handleClick(operation===selected ? "":operation)} 
+         value={operation}className={operation===selected ?"li-selected":"li"} key={operation}>{operation}</li> )}
     </nav>)
 }
 
